@@ -4,7 +4,8 @@
   "description": "frame data retriaval and parsing for smash ultimate data",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/Rmnlly/frame-data-parser/issues"
   },
-  "homepage": "https://github.com/Rmnlly/frame-data-parser#readme"
+  "homepage": "https://github.com/Rmnlly/frame-data-parser#readme",
+  "dependencies": {
+    "googleapis": "^27.0.0"
+  }
 }
