@@ -1,0 +1,28 @@
+{
+  "name": "frame-data-parser",
+  "version": "1.0.0",
+  "description": "frame data retriaval and parsing for smash ultimate data",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rmnlly/frame-data-parser.git"
+  },
+  "keywords": [
+    "smash",
+    "puppeteer",
+    "node",
+    "sheets",
+    "ultimate",
+    "data",
+    "frame"
+  ],
+  "author": "raman lally",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rmnlly/frame-data-parser/issues"
+  },
+  "homepage": "https://github.com/Rmnlly/frame-data-parser#readme"
+}
