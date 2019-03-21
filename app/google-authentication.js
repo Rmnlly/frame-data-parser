@@ -9,7 +9,7 @@ const SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"];
 // time.
 const TOKEN_PATH = `${__dirname}/../credentials/token.json`;
 
-const authenticate = () => {
+const authenticate = async () => {
   return new Promise((resolve, reject) => {
     const credentials = getClientSecret();
     const authorizePromise = authorize(credentials);
