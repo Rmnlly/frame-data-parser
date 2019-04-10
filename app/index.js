@@ -21,7 +21,7 @@ const makeCharactersJson = async auth => {
 
   const results = await characterSheetNames.reduce(async (charListP, char) => {
     const charList = await charListP; //await the res of the preomose of the previous iteration
-    await wait(500);
+    await wait(1000);
     const response = await getCharacterSheetData(
       auth,
       encodeURIComponent(char)
