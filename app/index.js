@@ -10,21 +10,26 @@ const getCharacterSheetData = require("./sheet-char-data");
 //   })
 // );
 
+const wait = ms => {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
+};
+
 const makeCharactersJson = async auth => {
   let characterSheetNames = await getSheetNames(auth);
 
-  let characterData = characterSheetNames.map(
-    async (char, i) => i !== 0 && (await getCharacterSheetData(auth, encodeURIComponent(char)))
-  );
+  const results = await characterSheetNames.reduce(async (charListP, char) => {
+    const charList = await charListP; //await the res of the preomose of the previous iteration
+    await wait(500);
+    const response = await getCharacterSheetData(
+      auth,
+      encodeURIComponent(char)
+    );
+    return charList.concat([response]);
+  }, []);
 
-  console.log(characterSheetNames);
+  console.log(results);
 };
-
-// getFeed().then(data => (vm.feed = data));
-
-// async function myFunction() {
-//   vm.feed = await getFeed();
-//   // do whatever you need with vm.feed below
-// }
 
 module.exports = authentication.then(auth => makeCharactersJson(auth));
