@@ -2,3 +2,5 @@ node_modules
 package-lock.json
 credentials.json
 credentials
+data
+.DS_Store
