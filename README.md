@@ -8,9 +8,7 @@ The program takes the data from following goolge sheet using googles api, gets t
 
 # New Features!
 
-  - Import a HTML file and watch it magically convert to Markdown
-  - Drag and drop images (requires your Dropbox account be linked)
-
+- Data is now being written to json files after being transformed
 
 ### Installation
 
