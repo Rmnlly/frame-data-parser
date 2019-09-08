@@ -38,12 +38,11 @@ and authenticate with your google account
 ### Todos
 
  - Clean up data for specific characters
- - Update the sheet being used to 3.0.1 from 3.0.0
+ - Update the sheet being used to 3.0.1 from 5.0.0 (latest release)
  - Find a better solution for holding data besides individual json objects
  - Write Tests
- - Better documentation
  - Rest api to server the data
- - A front end application to showcase data
+ - A front end application to showcase data (potentially a graph of sorts)
 
 License
 ----
