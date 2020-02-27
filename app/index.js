@@ -11,7 +11,9 @@ const wait = ms => {
 
 const makeCharactersJson = async auth => {
   let characterSheetNames = await getSheetNames(auth);
-
+  console.log(
+    "✓ retrived character names from sheet \n Now retrieving char data..."
+  );
   let newChars = characterSheetNames.slice(1);
 
   const results = await newChars.reduce(async (charListP, char, i) => {
@@ -21,8 +23,11 @@ const makeCharactersJson = async auth => {
       auth,
       encodeURIComponent(char)
     );
+    console.log(`💾 retrived ${char}`);
     return charList.concat([response]); //arrays are merged
   }, []);
+
+  console.log("✓ Char data retrieved, now transforming");
 
   const fixedMoveNames = {
     "<-Which hitbox?": "hitbox"
