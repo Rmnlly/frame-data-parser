@@ -27,6 +27,6 @@
   },
   "homepage": "https://github.com/Rmnlly/frame-data-parser#readme",
   "dependencies": {
-    "googleapis": "^27.0.0"
+    "googleapis": "^59.0.0"
   }
 }
