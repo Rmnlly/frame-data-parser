@@ -4,7 +4,7 @@ Frame Data Parser is a nodejs application that is meant to take a community crea
 
 The program takes the data from following goolge sheet using googles api, gets the character names from the sheets, transforms the data and saves each characters move data into its own json file.
 
-[Smash Bros Ultimate 3.0.1 patch notes sheet](https://docs.google.com/spreadsheets/d/16fmsoqDoQaR1eteVk2uuzIH2DB4iQHVrqiG8VRbRA7Q/edit#gid=123650910)
+[Super Smash Bros. Ultimate Patch 9.0/10.0/10.1 sheet](https://docs.google.com/spreadsheets/d/16fmsoqDoQaR1eteVk2uuzIH2DB4iQHVrqiG8VRbRA7Q/edit)
 
 Notes on how to update sheet data to latest patch:
 
