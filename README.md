@@ -13,9 +13,6 @@ Notes on how to update sheet data to latest patch:
 - Note the spreadsheetid is in the url after the `https://docs.google.com/spreadsheets/d/`
 - Replace the ID being used in the `sheet-char-names.js` and `sheet-char-data` files
 
-# New Features!
-
-- Data is now being written to json files after being transformed
 
 ### Installation
 
@@ -45,11 +42,17 @@ and authenticate with your google account
 ### Todos
 
 - Clean up data for specific characters
-- Update the sheet being used to 3.0.1 from 5.0.0 (latest release)
 - Find a better solution for holding data besides individual json objects
 - Write Tests
-- Rest api to server the data
+- GraphQL Api to serve the data
+- Cleaner functions
+- Rewrite all promise based code to async/await
+- Rewrite the "wait"-ing reduce into a generator maybe? 
 - A front end application to showcase data (potentially a graph of sorts)
+- Make the spreadSheetId an env variable
+
+### Todones!
+✅ - Update the sheet being used to 10.X (latest)
 
 ## License
 
