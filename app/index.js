@@ -3,26 +3,25 @@ const authentication = require("./google-authentication");
 const getSheetNames = require("./sheet-char-names");
 const getCharacterSheetData = require("./sheet-char-data");
 
-const wait = ms => {
-  return new Promise(resolve => {
+const wait = (ms) => {
+  return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
 };
 
-const makeCharactersJson = async auth => {
-  let characterSheetNames = await getSheetNames(auth);
+const makeCharactersJson = async (auth) => {
+  const characterSheetNames = await getSheetNames(auth);
   console.log(
     "✓ retrived character names from sheet \n Now retrieving char data..."
   );
-  let newChars = characterSheetNames.slice(1);
+  const newChars = characterSheetNames.slice(1);
+
+  console.log(newChars);
 
   const results = await newChars.reduce(async (charListP, char, i) => {
     const charList = await charListP; //await the res of the promise of the previous iteration
     await wait(1000);
-    const response = await getCharacterSheetData(
-      auth,
-      encodeURIComponent(char)
-    );
+    const response = await getCharacterSheetData(auth, char);
     console.log(`💾 retrived ${char}`);
     return charList.concat([response]); //arrays are merged
   }, []);
@@ -30,7 +29,7 @@ const makeCharactersJson = async auth => {
   console.log("✓ Char data retrieved, now transforming");
 
   const fixedMoveNames = {
-    "<-Which hitbox?": "hitbox"
+    "<-Which hitbox?": "hitbox",
   };
 
   const structuredResults = results.map((character, i) => {
@@ -56,19 +55,16 @@ const makeCharactersJson = async auth => {
     }, {});
     return {
       name: charName,
-      moves: movesData
+      moves: movesData,
     };
   });
 
-  structuredResults.map(el => {
-    const characterFileName = el.name
-      .split(" ")
-      .join("")
-      .replace(/[/]/g, "_");
+  structuredResults.map((el) => {
+    const characterFileName = el.name.split(" ").join("").replace(/[/]/g, "_");
     fs.writeFile(
       `${__dirname}/../data/${characterFileName}.json`,
       JSON.stringify(el, { flag: "wx" }, 2),
-      err => {
+      (err) => {
         if (err) throw err;
 
         console.log(`file created for ${characterFileName}`);
@@ -77,4 +73,4 @@ const makeCharactersJson = async auth => {
   });
 };
 
-module.exports = authentication.then(auth => makeCharactersJson(auth));
+module.exports = authentication.then((auth) => makeCharactersJson(auth));

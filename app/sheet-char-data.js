@@ -6,10 +6,11 @@ const getCharacterSheetData = (auth, sheetName) => {
   return new Promise((resolve, reject) => {
     sheets.spreadsheets.values.get(
       {
-        spreadsheetId: "1wI3pjw-q6pRZZbvwx0neJMDNoFJDobOcaUyvaD33qXE",
-        range: `${sheetName}!A:J`
+        spreadsheetId: "1U7Zb_CmHmUmjt5PSueMNuBj1bwd9XFRZ8MkNl08M-_I",
+        range: `${sheetName}!A:J`,
       },
       (err, res) => {
+        console.log(`${sheetName}!A:J`);
         if (err) return console.log("The api returned error: " + err);
         const rawData = res.data.values;
         //rawData is an array of arrays, the inside values are
